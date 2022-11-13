@@ -1,0 +1,27 @@
+{
+  "name": "issue-ops-approval",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:kharkevich/issue-ops-approval.git",
+  "author": "Alexander Kharkevich <alexander_kharkevich@outlook.com>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "compile": "ncc build index.js -o action",
+    "clean": "rm -rf action",
+    "lint": "eslint . --fix",
+    "postinstall": "husky install"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "husky": "^8.0.2",
+    "ncc": "^0.3.6"
+  }
+}

@@ -1,0 +1,37 @@
+name: "GitHub IssueOps Approvals"
+description: "Provide feedback (approve/reject) on GitHub Issues based on comments"
+inputs:
+  repo-token:
+    description: "GITHUB_TOKEN"
+    required: true
+  mode:
+    description: "How to determine approvers: valid values are team or list"
+    required: true
+    default: "list"
+  approvers:
+    description: "Comma-separated list of approvers or team name"
+    required: true
+  minimum-approvals:
+    description: "Minimum number of approvals to progress workflow"
+    required: false
+    default: "1"
+  fail-on-decline:
+    description: "Fail workflow if any approver declines"
+    required: false
+    default: "false"
+  approve-words:
+    description: "Comma-separated list of words that approve"
+    required: false
+    default: "approve, approved, looks good, looks good to me, looks good to me!, lgtm, lgtm!, ship it, ship it!, :shipit:, :shipit:!"
+  decline-words:
+    description: "Comma-separated list of words that decline"
+    required: false
+    default: "denied, deny, no, decline, declined, decline!, no!, nope, nope!, not yet, not yet!, not ready, not ready!, not good, not good!, not good enough, not good enough!, not approved, not approved!, not approved yet, not approved yet!, not approved enough, not approved enough!, not ready to ship, not ready to ship!, not ready to ship yet, not ready to ship yet!, not ready to ship enough, not ready to ship enough!, not ready to ship enough yet, not ready to ship enough yet!"
+outputs:
+  approved:
+    description: "The result of the action (true/false/undefined)"
+  justification:
+    description: "The justification for the result (e.g. 'approved by 2 of 3 approvers')"
+runs:
+  using: "node16"
+  main: "action/index.js"
