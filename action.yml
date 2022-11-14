@@ -1,5 +1,9 @@
 name: "GitHub IssueOps Approvals"
 description: "Provide feedback (approve/reject) on GitHub Issues based on comments"
+author: 'Alexander Kharkevich'
+branding:
+  icon: "check-square"
+  color: "yellow"
 inputs:
   repo-token:
     description: "GITHUB_TOKEN"
